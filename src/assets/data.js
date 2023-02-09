@@ -1,0 +1,1 @@
+export const fruits = ['apple', 'banana', 'orange', 'red apple', ' juciy orange', 'again banana', 'green apple', 'peach']

@@ -1,28 +1,27 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { AutoComplete } from './components/AutoComplete';
 import { IRecValues } from './types';
-const fruits = ['apple', 'banana', 'orange', 'red apple', ' juciy orange', 'again banana']
+import { fruits } from './assets/data'
+import { getFilteredData } from './assets/functions'
 
 function App() {
- 
   const [inputValue, setInputValue] = useState<string>('')
   const [recValues, setRecValues] = useState<IRecValues>([])
 
-  const getFilteredData = (inputValue:string) => {
-    const filteredData = fruits.filter(
-      fruits =>
-        fruits.toLowerCase().indexOf(inputValue.toLowerCase()) > -1
-    );
+  useEffect(() => {
+    const debounce = setTimeout(() => {
+      const filteredData = getFilteredData(fruits ,inputValue)
+      setRecValues(filteredData)
+    }, 350)
 
-    return filteredData
-  }
+    return () => clearTimeout(debounce)
+
+  }, [inputValue])
 
   const handleChange = (event:React.ChangeEvent<HTMLInputElement>) => {
-    const tempInputValue = event.currentTarget.value;
-    const filteredData = getFilteredData(tempInputValue)
-    setInputValue(tempInputValue)
-    setRecValues(filteredData)
+    const inputValue = event.currentTarget.value;
+    setInputValue(inputValue)
   }
 
   return (
