@@ -3,6 +3,6 @@
 2. Install packages with npm i
 3. Start project with npm start
 
-Deployed to [Netlify][(http://stackoverflow.com](https://simple-autocomplete-dastn.netlify.app/)){:target="_blank" rel="noopener"}
+Deployed to [Netlify][(http://stackoverflow.com](https://simple-autocomplete-dastn.netlify.app/){:target="_blank" rel="noopener"}
 
 
