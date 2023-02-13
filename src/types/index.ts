@@ -10,4 +10,9 @@ export interface IRecommendations {
     recValues: IRecValues
 }
 
+export interface IHighlightedText {
+    fullText: string,
+    inputValue: string
+}
+
 export type IRecValues = Array<string>
